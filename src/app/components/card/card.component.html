@@ -1,4 +1,8 @@
-<div class="card flex-column align-center gap-20" *ngIf="pokemon">
+<div
+  [routerLink]="'/pokemon/' + pokemon.name"
+  class="card flex-column align-center gap-20"
+  *ngIf="pokemon"
+>
   <div class="flex-row justify-between gap-8 align-center w-100">
     <h3 class="name">{{ pokemon.name }}</h3>
 

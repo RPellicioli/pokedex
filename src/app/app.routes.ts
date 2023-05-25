@@ -16,6 +16,16 @@ const enUsUrls = localeEnUs.data.URLs;
 
 const routes: Routes = [
   <Route>{
+    matcher: CaseInsensitiveMatcher.matcher,
+    matcherPath: [
+      ptBrUrls.Pokemon.Url + '/:slug',
+      esPyUrls.Pokemon.Url + '/:slug',
+      enUsUrls.Pokemon.Url + '/:slug',
+    ],
+    loadChildren: () =>
+      import('./views/pokemon/pokemon.module').then((m) => m.PokemonModule),
+  },
+  <Route>{
     path: '',
     loadChildren: () =>
       import('./views/home/home.module').then((m) => m.HomeModule),

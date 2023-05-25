@@ -50,5 +50,21 @@ export namespace ApiPokemonsService {
         };
       };
     };
+    stats: Stats[];
+    types: {
+      slot: number;
+      type: {
+        name: string;
+      };
+    }[];
+  }
+
+  export interface Stats {
+    base_stat: number;
+    effort: number;
+    stat: {
+      name: string;
+      url: string;
+    };
   }
 }

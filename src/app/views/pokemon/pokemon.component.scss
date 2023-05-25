@@ -1,0 +1,107 @@
+@import "src/styles/utils";
+
+:host {
+  .default-view-container {
+    .content {
+      @media only screen and (max-width: $mobile-width) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .wrap-header {
+      .name {
+        font-weight: $font-weight-bold;
+        font-size: 35px;
+        line-height: 48px;
+        text-transform: capitalize;
+      }
+
+      .info {
+        line-height: 30px;
+        font-size: 22px;
+        font-weight: $font-weight-normal;
+      }
+
+      .type {
+        .box-type {
+          padding: 5px;
+          border-radius: 2px;
+          width: 100px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 22px;
+          font-size: 22px;
+          font-weight: $font-weight-normal;
+          color: $white;
+        }
+      }
+    }
+
+    .description {
+      .title {
+        line-height: 30px;
+        font-size: 22px;
+        font-weight: $font-weight-bold;
+      }
+
+      p {
+        line-height: 22px;
+        font-size: 16px;
+        font-weight: $font-weight-semi-bold;
+      }
+    }
+
+    .skills {
+      .skill {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .title {
+          width: 80px;
+          line-height: 22px;
+          font-size: 16px;
+          font-weight: $font-weight-semi-bold;
+        }
+
+        .progress {
+          height: 21px;
+          border-radius: 2px;
+
+          &.life {
+            background: #c4f789;
+          }
+
+          &.defense {
+            background: #f7802a;
+          }
+
+          &.speed {
+            background: #49d0b0;
+          }
+
+          &.attack {
+            background: #ea686d;
+          }
+        }
+      }
+    }
+
+    .wrap-image {
+      figure {
+        width: 320px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<div class="default-view-container">
+  <div class="flex-row pb-60 pt-16 gap-32 align-center content" *ngIf="pokemon">
+    <div class="flex-column gap-20 flex-1">
+      <div class="wrap-header flex-column gap-12">
+        <h2 class="name">{{ pokemon.name }}</h2>
+
+        <div class="flex-row align-center gap-20 justify-between">
+          <span class="info"> Cod: #{{ pokemon.id }} </span>
+
+          <div class="type flex-row align-center gap-20">
+            <span class="info"> Tipo: </span>
+
+            <div
+              class="box-type"
+              [ngStyle]="{
+                backgroundColor: typeColors[pokemon.types[0].type.name].bg
+              }"
+            >
+              {{ pokemon.types[0].type.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="description flex-column gap-8">
+        <span class="title">Descriçāo</span>
+
+        <p>
+          {{ getDescription() }}
+        </p>
+      </div>
+
+      <div class="skills flex-column gap-16">
+        <div class="skill">
+          <div class="title">Vida</div>
+
+          <div
+            class="progress life"
+            [ngStyle]="{ width: getStats('hp') }"
+          ></div>
+        </div>
+
+        <div class="skill">
+          <div class="title">Defesa</div>
+
+          <div
+            class="progress defense"
+            [ngStyle]="{ width: getStats('defense') }"
+          ></div>
+        </div>
+
+        <div class="skill">
+          <div class="title">Velocidade</div>
+
+          <div
+            class="progress speed"
+            [ngStyle]="{ width: getStats('speed') }"
+          ></div>
+        </div>
+
+        <div class="skill">
+          <div class="title">Ataque</div>
+
+          <div
+            class="progress attack"
+            [ngStyle]="{ width: getStats('attack') }"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap-image flex-1 flex-column align-end">
+      <figure>
+        <img
+          [src]="pokemon.sprites.other['official-artwork'].front_default"
+          alt="Pokemon"
+        />
+      </figure>
+    </div>
+  </div>
+
+  <most-popular class="pb-60"></most-popular>
+</div>

@@ -6,6 +6,10 @@ export const locale = {
         Url: '',
         Description: 'Tela inicial',
       },
+      Pokemon: {
+        Url: 'pokemon',
+        Description: 'Pokémon',
+      },
     },
     General: {
       Search: 'Buscar',
