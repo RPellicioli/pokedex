@@ -9,8 +9,12 @@ import { LoadingService } from '../loading/loading.service';
   styleUrls: ['./pokedex-list.component.scss'],
 })
 export class PokedexListComponent implements OnInit {
+  public isLoading: boolean = false;
   public shortPokemons: ApiPokemonsService.ShortPokemon[] = [];
   public pokemons: ApiPokemonsService.Pokemon[] = [];
+  public queryFilter: ApiBase.QueryFilter = new ApiBase.QueryFilter();
+  public pagination: PokedexListComponent.Pagination =
+    new PokedexListComponent.Pagination();
 
   constructor(
     private apiPokemonsService: ApiPokemonsService,
@@ -19,6 +23,17 @@ export class PokedexListComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     this.loadingService.isLoading = true;
+
+    this.queryFilter.offset = 0;
+    this.queryFilter.limit = 12;
+
+    await this.loadPageInfos();
+
+    this.loadingService.isLoading = false;
+  }
+
+  public async loadPageInfos(): Promise<void> {
+    this.isLoading = true;
 
     await this.loadPokemons();
 
@@ -30,18 +45,17 @@ export class PokedexListComponent implements OnInit {
       );
     }
 
-    this.loadingService.isLoading = false;
+    this.isLoading = false;
   }
 
   public async loadPokemons(): Promise<void> {
     try {
-      const queryFilter = new ApiBase.QueryFilter();
-      queryFilter.offset = 0;
-      queryFilter.limit = 12;
-
-      const response = await this.apiPokemonsService.getPokemons(queryFilter);
+      const response = await this.apiPokemonsService.getPokemons(
+        this.queryFilter
+      );
 
       this.shortPokemons = response.results;
+      this.updatePagination(response);
     } catch (error) {
       console.log(error);
     }
@@ -55,5 +69,41 @@ export class PokedexListComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  public async next(): Promise<void> {
+    this.queryFilter.offset += 12;
+    this.pokemons = [];
+
+    await this.loadPageInfos();
+  }
+
+  public async previous(): Promise<void> {
+    this.queryFilter.offset -= 12;
+    this.pokemons = [];
+
+    await this.loadPageInfos();
+  }
+
+  private resetPagination(): void {
+    this.pagination = {
+      count: 0,
+      next: '',
+      previous: '',
+    };
+  }
+
+  private updatePagination(model: ApiBase.ListViewModel<any>): void {
+    this.pagination.count = model.count;
+    this.pagination.next = model.next;
+    this.pagination.previous = model.previous;
+  }
+}
+
+export namespace PokedexListComponent {
+  export class Pagination {
+    previous: string = '';
+    next: string = '';
+    count: number = 0;
   }
 }

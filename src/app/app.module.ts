@@ -7,11 +7,11 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { TranslationLoaderService } from './services/translation-loader.service';
 import { CultureService } from './services/culture.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiModule } from './core/api/api.module';
 import { HeaderModule } from './components/header/header.module';
 import { LoadingModule } from './components/loading/loading.module';
+import { LoadingService } from './components/loading/loading.service';
 
 registerLocaleData(localePt, 'pt');
 
@@ -29,6 +29,7 @@ registerLocaleData(localePt, 'pt');
   providers: [
     TranslationLoaderService,
     CultureService,
+    LoadingService,
     { provide: LOCALE_ID, useValue: 'pt' },
   ],
   bootstrap: [AppComponent],

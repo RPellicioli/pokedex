@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent implements OnInit {
-  @Input() public background: string = '';
+  @Input() public transparent: boolean = false;
   @Input() public isFixed: boolean = false;
 
   constructor() {}

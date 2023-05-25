@@ -1,7 +1,17 @@
 :host {
   .list {
+    position: relative;
+    min-height: 540px;
+
     card {
       width: 190px;
+    }
+  }
+
+  .arrow {
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
 }

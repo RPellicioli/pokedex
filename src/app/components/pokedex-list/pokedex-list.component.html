@@ -3,11 +3,19 @@
     <h2>Pokedex</h2>
 
     <div class="flex-row gap-8 align-center pr-20">
-      <div class="arrow">
+      <div
+        class="arrow"
+        (click)="previous()"
+        [ngClass]="{ disabled: !pagination.previous }"
+      >
         <img src="../../../assets/svg/prev.svg" alt="prev" />
       </div>
 
-      <div class="arrow">
+      <div
+        class="arrow"
+        (click)="next()"
+        [ngClass]="{ disabled: !pagination.next }"
+      >
         <img src="../../../assets/svg/next.svg" alt="next.svg" />
       </div>
     </div>
@@ -15,5 +23,7 @@
 
   <div class="flex-wrap gap-32 list">
     <card *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></card>
+
+    <loading [transparent]="true" *ngIf="isLoading"></loading>
   </div>
 </div>

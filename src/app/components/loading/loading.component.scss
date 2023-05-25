@@ -30,6 +30,13 @@
   img {
     max-height: 50px;
   }
+
+  &.transparent {
+    .content {
+      background: $light-smoke;
+      opacity: 0.5;
+    }
+  }
 }
 
 @keyframes blur {
