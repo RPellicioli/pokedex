@@ -4,17 +4,35 @@
   header {
     height: 500px;
 
+    @media only screen and (max-width: $mobile-width) {
+      height: auto;
+    }
+
     .default-view-container {
       height: 100%;
 
+      @media only screen and (max-width: $mobile-width) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+
       .wrap-title {
         max-width: 450px;
+
+        @media only screen and (max-width: $mobile-width) {
+          width: 100%;
+        }
 
         h1 {
           line-height: 60px;
           font-size: 55px;
           font-family: $font-nunito;
           font-weight: $font-weight-bold;
+
+          @media only screen and (max-width: $mobile-width) {
+            font-size: 35px;
+            line-height: 39px;
+          }
 
           mark {
             background: transparent;
@@ -27,6 +45,11 @@
         line-height: 30px;
         font-size: 25px;
         font-weight: $font-weight-normal;
+
+        @media only screen and (max-width: $mobile-width) {
+          font-size: 16px;
+          line-height: 30px;
+        }
       }
 
       search {
@@ -34,9 +57,23 @@
         max-width: 400px;
       }
 
+      .wrap-text {
+        @media only screen and (max-width: $mobile-width) {
+          transform: translateY(-20px);
+          width: 80%;
+          gap: 12px;
+        }
+      }
+
       .images {
         height: 100%;
         position: relative;
+
+        @media only screen and (max-width: $mobile-width) {
+          height: 300px;
+          width: 100%;
+          min-height: 280px;
+        }
 
         img {
           position: absolute;
@@ -49,6 +86,15 @@
             left: 5%;
             top: 15%;
 
+            @media only screen and (max-width: $notebook-width) {
+              width: 150px;
+            }
+
+            @media only screen and (max-width: $mobile-width) {
+              width: 100px;
+              left: 20%;
+            }
+
             &.in-view {
               opacity: 1;
               transform: scale(1);
@@ -60,6 +106,15 @@
             left: 35%;
             top: 2%;
 
+            @media only screen and (max-width: $notebook-width) {
+              width: 280px;
+            }
+
+            @media only screen and (max-width: $mobile-width) {
+              width: 180px;
+              left: 40%;
+            }
+
             &.in-view {
               opacity: 1;
               transform: scale(1);
@@ -70,6 +125,15 @@
           &:nth-child(3) {
             left: 12%;
             top: 48%;
+
+            @media only screen and (max-width: $notebook-width) {
+              width: 200px;
+              left: 25%;
+            }
+
+            @media only screen and (max-width: $mobile-width) {
+              width: 100px;
+            }
 
             &.in-view {
               opacity: 1;
