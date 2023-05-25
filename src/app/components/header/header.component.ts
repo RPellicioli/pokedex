@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
   public ngAfterViewInit() {
     setTimeout(() => {
       this.isLoaded = true;
-    }, 0);
+    }, 1500);
   }
 }

@@ -1,0 +1,18 @@
+:host {
+  .list {
+    card {
+      width: 190px;
+    }
+  }
+
+  ::ng-deep .slick-slider {
+    width: 100%;
+    height: 300px;
+
+    .item {
+      height: 300px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

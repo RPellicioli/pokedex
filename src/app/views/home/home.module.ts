@@ -4,14 +4,16 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { HomeComponent } from './home.component';
 import { CardModule } from '@app/components/card/card.module';
-import { LoadingModule } from '@app/components/loading/loading.module';
+import { MostPopularModule } from '@app/components/most-popular/most-popular.module';
+import { PokedexListModule } from '@app/components/pokedex-list/pokedex-list.module';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
     CardModule,
-    LoadingModule,
+    MostPopularModule,
+    PokedexListModule,
     RouterModule.forChild([{ path: '', component: HomeComponent }]),
   ],
   declarations: [HomeComponent],

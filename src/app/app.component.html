@@ -1,4 +1,6 @@
 <main>
   <app-header></app-header>
   <router-outlet></router-outlet>
+
+  <loading *ngIf="loadingService.isLoading" [isFixed]="true"></loading>
 </main>

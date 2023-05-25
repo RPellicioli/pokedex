@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://api-backoffice.bettha.com',
+  baseUrl: 'https://pokeapi.co/api/v2',
 };

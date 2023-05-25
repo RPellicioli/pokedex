@@ -5,6 +5,7 @@ import { TranslationLoaderService } from './services/translation-loader.service'
 import { locale as localePtBr } from './i18n/pt-BR';
 import { locale as localeEnUs } from './i18n/en-US';
 import { locale as localeEsPy } from './i18n/es-PY';
+import { LoadingService } from './components/loading/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
   constructor(
     public translationLoaderService: TranslationLoaderService,
     public translateService: TranslateService,
-    public cultureService: CultureService
+    public cultureService: CultureService,
+    public loadingService: LoadingService
   ) {
     translateService.setDefaultLang('pt-BR');
     translateService.use(cultureService.currentCulture);
@@ -28,7 +30,15 @@ export class AppComponent {
     cultureService.onCultureChanged.subscribe((lang) => {
       translateService.use(lang);
     });
+
+    this.loadingService.isLoading = true;
   }
 
   public ngOnInit(): void {}
+
+  public ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.loadingService.isLoading = false;
+    }, 1500);
+  }
 }

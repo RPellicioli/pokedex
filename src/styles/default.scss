@@ -74,6 +74,24 @@ a {
   color: $primary;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 5px $blue;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $light-smoke;
+  border-radius: 8px;
+}
+
 .default-view-container {
   width: 100%;
   max-width: 1344px;
@@ -132,22 +150,36 @@ figure {
   cursor: pointer;
 }
 
-.slick-arrow {
-  height: 50px;
-  width: 50px;
+.slick-arrow,
+.arrow {
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
   z-index: 1;
-  background: $white;
-  color: transparent;
+  background: $secondary;
+  color: $white;
   border: none;
   box-sizing: border-box;
   position: absolute;
   cursor: pointer;
   transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.slick-next,
   &.slick-prev {
+    height: 32px;
+    width: 32px;
+    background: $secondary;
+    color: $white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     &::before {
+      margin: 0 !important;
       box-sizing: border-box;
       display: inline-block;
       font-family: "Material Icons";
@@ -156,11 +188,11 @@ figure {
       font-variant-east-asian: normal;
       font-variant-ligatures: normal;
       font-variant-numeric: normal;
-      font-weight: 700;
+      font-weight: 300;
       font-size: 40px;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
-      color: $secondary;
+      color: $white;
       margin-top: 4px;
       transition: 0.7s ease;
     }
@@ -168,9 +200,10 @@ figure {
 
   &.slick-next {
     top: 50%;
-    right: -25px;
+    right: -8px;
     transform: rotate(180deg) matrix(-1, 0, 0, 1, 0, 0) translateY(50%);
     box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
+    background: $secondary;
 
     &::before {
       content: "\e5cc";
@@ -179,9 +212,10 @@ figure {
 
   &.slick-prev {
     top: 50%;
-    left: -25px;
+    left: -8px;
     transform: matrix(-1, 0, 0, 1, 0, 0) translateY(-50%);
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    background: $secondary;
 
     &::before {
       content: "\e5cc";
@@ -190,11 +224,16 @@ figure {
 
   &:hover {
     opacity: 0.7;
-
-    &::before {
-      color: $white;
-    }
+    background: $secondary !important;
   }
+
+  &:focus {
+    background: $secondary !important;
+  }
+}
+
+.arrow {
+  position: relative;
 }
 
 .slick-dots {

@@ -6,11 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public loading: boolean = false;
-
   constructor() {}
 
   public ngOnInit(): void {}
-
-  public ngAfterViewInit() {}
 }

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8110',
+  baseUrl: 'https://pokeapi.co/api/v2',
 };

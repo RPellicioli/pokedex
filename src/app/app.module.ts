@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiModule } from './core/api/api.module';
 import { HeaderModule } from './components/header/header.module';
+import { LoadingModule } from './components/loading/loading.module';
 
 registerLocaleData(localePt, 'pt');
 
@@ -23,6 +24,7 @@ registerLocaleData(localePt, 'pt');
     AppRoutingModule,
     ApiModule,
     HeaderModule,
+    LoadingModule,
     TranslateModule.forRoot(),
   ],
   providers: [
