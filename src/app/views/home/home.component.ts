@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokedexListService } from '@app/components/pokedex-list/pokedex-list.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  constructor() {}
+  constructor(public pokedexListService: PokedexListService) {}
 
   public ngOnInit(): void {}
 }

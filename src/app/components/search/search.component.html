@@ -1,10 +1,12 @@
 <div class="flex-row justify-between">
   <input
+    #searchInput
+    [(ngModel)]="search"
     type="text"
     placeholder="{{ 'General.SearchPlaceholder' | translate }}"
   />
 
-  <button class="button secondary medium">
+  <button (click)="onSearch()" class="button secondary medium">
     <span>{{ "General.Search" | translate }}</span>
     <div class="bg-animated white"></div>
   </button>

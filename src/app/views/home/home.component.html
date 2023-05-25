@@ -1,6 +1,6 @@
 <div class="default-view-container">
   <div class="flex-column gap-48 pt-16 pb-60">
-    <most-popular></most-popular>
+    <most-popular *ngIf="!pokedexListService.queryFilter.search"></most-popular>
 
     <pokedex-list></pokedex-list>
   </div>

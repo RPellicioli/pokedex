@@ -2,19 +2,22 @@
   <div class="flex-row justify-between gap-20 mt-12">
     <h2>Pokedex</h2>
 
-    <div class="flex-row gap-8 align-center pr-20">
+    <div
+      class="flex-row gap-8 align-center pr-20"
+      *ngIf="!pokedexListService.queryFilter.search"
+    >
       <div
         class="arrow"
-        (click)="previous()"
-        [ngClass]="{ disabled: !pagination.previous }"
+        (click)="pokedexListService.previous()"
+        [ngClass]="{ disabled: !pokedexListService.pagination.previous }"
       >
         <img src="../../../assets/svg/prev.svg" alt="prev" />
       </div>
 
       <div
         class="arrow"
-        (click)="next()"
-        [ngClass]="{ disabled: !pagination.next }"
+        (click)="pokedexListService.next()"
+        [ngClass]="{ disabled: !pokedexListService.pagination.next }"
       >
         <img src="../../../assets/svg/next.svg" alt="next.svg" />
       </div>
@@ -22,8 +25,20 @@
   </div>
 
   <div class="flex-wrap gap-32 list">
-    <card *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></card>
+    <ng-container *ngIf="pokedexListService.pokemons.length > 0">
+      <card
+        *ngFor="let pokemon of pokedexListService.pokemons"
+        [pokemon]="pokemon"
+      ></card>
+    </ng-container>
 
-    <loading [transparent]="true" *ngIf="isLoading"></loading>
+    <div class="empty-message" *ngIf="pokedexListService.pokemons.length == 0">
+      {{ "List.EmptyPokemons" | translate }}
+    </div>
+
+    <loading
+      [transparent]="true"
+      *ngIf="pokedexListService.isLoading"
+    ></loading>
   </div>
 </div>

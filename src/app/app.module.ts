@@ -12,6 +12,7 @@ import { ApiModule } from './core/api/api.module';
 import { HeaderModule } from './components/header/header.module';
 import { LoadingModule } from './components/loading/loading.module';
 import { LoadingService } from './components/loading/loading.service';
+import { PokedexListService } from './components/pokedex-list/pokedex-list.service';
 
 registerLocaleData(localePt, 'pt');
 
@@ -30,6 +31,7 @@ registerLocaleData(localePt, 'pt');
     TranslationLoaderService,
     CultureService,
     LoadingService,
+    PokedexListService,
     { provide: LOCALE_ID, useValue: 'pt' },
   ],
   bootstrap: [AppComponent],

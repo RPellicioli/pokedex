@@ -19,5 +19,8 @@ export const locale = {
       Height: 'Altura',
       Weight: 'Peso',
     },
+    List: {
+      EmptyPokemons: 'Nenhum pokémon encontrado',
+    },
   },
 };

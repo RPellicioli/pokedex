@@ -31,8 +31,7 @@ export abstract class ApiBase {
           resolve(result);
         },
         (error) => {
-          debugger;
-          this.errorHandler(error, reject);
+          reject(error);
         }
       );
     });
