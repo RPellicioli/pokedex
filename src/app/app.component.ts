@@ -30,15 +30,7 @@ export class AppComponent {
     cultureService.onCultureChanged.subscribe((lang) => {
       translateService.use(lang);
     });
-
-    this.loadingService.isLoading = true;
   }
 
   public ngOnInit(): void {}
-
-  public ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.loadingService.isLoading = false;
-    }, 1500);
-  }
 }

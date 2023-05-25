@@ -15,17 +15,17 @@
     <div class="flex-1 images">
       <img
         src="../../../assets/image/togepi.png"
-        [ngClass]="{ 'in-view': isLoaded }"
+        [ngClass]="{ 'in-view': !loadingService.isLoading }"
         alt="Togepi"
       />
       <img
         src="../../../assets/image/pikachu.png"
-        [ngClass]="{ 'in-view': isLoaded }"
+        [ngClass]="{ 'in-view': !loadingService.isLoading }"
         alt="Pikachu"
       />
       <img
         src="../../../assets/image/bulbasaur.png"
-        [ngClass]="{ 'in-view': isLoaded }"
+        [ngClass]="{ 'in-view': !loadingService.isLoading }"
         alt="Bulbasaur"
       />
     </div>

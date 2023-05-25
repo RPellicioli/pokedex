@@ -7,7 +7,6 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { TranslationLoaderService } from './services/translation-loader.service';
 import { CultureService } from './services/culture.service';
-import { RequestInterceptorService } from './services/request-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiModule } from './core/api/api.module';
@@ -31,11 +30,6 @@ registerLocaleData(localePt, 'pt');
     TranslationLoaderService,
     CultureService,
     { provide: LOCALE_ID, useValue: 'pt' },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RequestInterceptorService,
-      multi: true,
-    },
   ],
   bootstrap: [AppComponent],
 })

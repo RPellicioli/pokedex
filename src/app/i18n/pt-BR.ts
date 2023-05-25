@@ -15,5 +15,9 @@ export const locale = {
       Title: 'Explore o mundo dos',
       Description: 'Descubra todas as espécies de Pokémons',
     },
+    Pokemon: {
+      Height: 'Altura',
+      Weight: 'Peso',
+    },
   },
 };

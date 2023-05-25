@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiPokemonsService } from '@app/core/api/api-pokemons.service';
 
 @Component({
   selector: 'card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
+  @Input() public pokemon!: ApiPokemonsService.Pokemon;
+
   constructor() {}
 
   public ngOnInit(): void {}

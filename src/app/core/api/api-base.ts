@@ -30,7 +30,10 @@ export abstract class ApiBase {
         (result) => {
           resolve(result);
         },
-        (error) => this.errorHandler(error, reject)
+        (error) => {
+          debugger;
+          this.errorHandler(error, reject);
+        }
       );
     });
   }
@@ -149,9 +152,9 @@ export abstract class ApiBase {
     }
 
     if (options.headers) {
-      options.headers = Object.assign(this.buildHeader(true), options.headers);
+      options.headers = Object.assign(this.buildHeader(false), options.headers);
     } else {
-      options.headers = this.buildHeader(true);
+      options.headers = this.buildHeader(false);
     }
 
     return options;
@@ -202,8 +205,8 @@ export namespace ApiBase {
   };
 
   export class QueryFilter {
-    page: number = 0;
-    size: number = 0;
+    offset: number = 0;
+    limit: number = 0;
     search: string = '';
     sort: string[] = [];
   }
@@ -215,15 +218,10 @@ export namespace ApiBase {
   }
 
   export class ListViewModel<TItem> {
-    public totalElements: number = 0;
-    public totalPages: number = 0;
-    public first: boolean = false;
-    public last: boolean = false;
-    public number: number = 0;
-    public numberOfElements: number = 0;
-    public size: number = 0;
-    public empty: boolean = false;
-    public content: TItem[] = [];
+    public next: string = '';
+    public previous: string = '';
+    public count: number = 0;
+    public results: TItem[] = [];
   }
 
   export class Pageable {

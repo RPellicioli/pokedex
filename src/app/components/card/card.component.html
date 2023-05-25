@@ -1,25 +1,28 @@
-<div class="card flex-column align-center gap-20">
+<div class="card flex-column align-center gap-20" *ngIf="pokemon">
   <div class="flex-row justify-between gap-8 align-center w-100">
-    <h3 class="name">Blastoise</h3>
+    <h3 class="name">{{ pokemon.name }}</h3>
 
-    <span class="code">#COD</span>
+    <span class="code">#{{ pokemon.id }}</span>
   </div>
 
   <figure>
-    <img src="../../../assets/image/blastoise.png" alt="Pokemon" />
+    <img
+      [src]="pokemon.sprites.other['official-artwork'].front_default"
+      alt="Pokemon"
+    />
   </figure>
 
   <div class="flex-column gap-4 w-100">
     <div class="flex-row justify-between gap-8 align-center">
-      <b class="prop">Altura:</b>
+      <b class="prop">{{ "Pokemon.Height" | translate }}:</b>
 
-      <span class="value">40cm</span>
+      <span class="value">{{ pokemon.height }}cm</span>
     </div>
 
     <div class="flex-row justify-between gap-8 align-center">
-      <b class="prop">Peso:</b>
+      <b class="prop">{{ "Pokemon.Weight" | translate }}:</b>
 
-      <span class="value">6kg</span>
+      <span class="value">{{ pokemon.weight }}kg</span>
     </div>
   </div>
 </div>

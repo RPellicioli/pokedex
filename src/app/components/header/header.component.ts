@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from '../loading/loading.service';
 
 @Component({
   selector: 'app-header',
@@ -6,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public isLoaded: boolean = false;
-
-  constructor() {}
+  constructor(public loadingService: LoadingService) {}
 
   public ngOnInit(): void {}
 
-  public ngAfterViewInit() {
-    setTimeout(() => {
-      this.isLoaded = true;
-    }, 1500);
-  }
+  public ngAfterViewInit() {}
 }
