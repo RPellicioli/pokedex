@@ -1,0 +1,33 @@
+<header>
+  <div class="default-view-container flex-row align-center gap-20">
+    <div class="flex-column gap-24 flex-1 align-start">
+      <div class="wrap-title">
+        <img src="../../../assets/image/logo.png" alt="Inicie logo" />
+
+        <h1>{{ "Header.Title" | translate }} <mark>Pokémons</mark></h1>
+      </div>
+
+      <p class="description">{{ "Header.Description" | translate }}</p>
+
+      <search></search>
+    </div>
+
+    <div class="flex-1 images">
+      <img
+        src="../../../assets/image/togepi.png"
+        [ngClass]="{ 'in-view': isLoaded }"
+        alt="Togepi"
+      />
+      <img
+        src="../../../assets/image/pikachu.png"
+        [ngClass]="{ 'in-view': isLoaded }"
+        alt="Pikachu"
+      />
+      <img
+        src="../../../assets/image/bulbasaur.png"
+        [ngClass]="{ 'in-view': isLoaded }"
+        alt="Bulbasaur"
+      />
+    </div>
+  </div>
+</header>

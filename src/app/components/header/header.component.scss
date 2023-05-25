@@ -1,0 +1,85 @@
+@import "src/styles/utils";
+
+:host {
+  header {
+    height: 55vh;
+    max-height: 500px;
+
+    .default-view-container {
+      height: 100%;
+
+      .wrap-title {
+        max-width: 450px;
+
+        h1 {
+          line-height: 60px;
+          font-size: 55px;
+          font-family: $font-nunito;
+          font-weight: $font-weight-bold;
+
+          mark {
+            background: transparent;
+            color: $secondary;
+          }
+        }
+      }
+
+      .description {
+        line-height: 30px;
+        font-size: 25px;
+        font-weight: $font-weight-normal;
+      }
+
+      search {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .images {
+        height: 100%;
+        position: relative;
+
+        img {
+          position: absolute;
+          transition: 0.5s ease-in-out;
+          opacity: 0;
+          transition-property: transform, opacity;
+          transform: scale(0.5);
+
+          &:nth-child(1) {
+            left: 5%;
+            top: 15%;
+
+            &.in-view {
+              opacity: 1;
+              transform: scale(1);
+              transition-delay: 0.4s;
+            }
+          }
+
+          &:nth-child(2) {
+            left: 35%;
+            top: 2%;
+
+            &.in-view {
+              opacity: 1;
+              transform: scale(1);
+              transition-delay: 0.8s;
+            }
+          }
+
+          &:nth-child(3) {
+            left: 12%;
+            top: 48%;
+
+            &.in-view {
+              opacity: 1;
+              transform: scale(1);
+              transition-delay: 0.6s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

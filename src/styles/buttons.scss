@@ -1,0 +1,178 @@
+@import "./utils";
+
+button {
+  outline: none;
+}
+
+.button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 5px;
+  gap: 10px;
+  font-family: $font-nunito;
+  font-weight: $font-weight-bold;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: 0.3s ease all;
+  cursor: pointer;
+
+  .btn-icon {
+    z-index: 1;
+  }
+
+  .bg-animated {
+    left: -5%;
+    width: 0;
+    height: 100%;
+    z-index: 0;
+    transform: skewX(-10deg);
+    transition: 0.3s ease-out all;
+    position: absolute;
+    cursor: pointer;
+
+    &.white {
+      background-color: $white;
+    }
+
+    &.primary {
+      background-color: $primary;
+    }
+
+    &.secondary {
+      background-color: $secondary;
+    }
+  }
+
+  &:hover {
+    .bg-animated {
+      width: 110%;
+    }
+  }
+
+  i,
+  mat-icon {
+    z-index: 1;
+    transition-property: color;
+    position: relative;
+
+    svg {
+      transition: 0.3s ease;
+      transition-property: fill, stroke;
+    }
+  }
+
+  span {
+    z-index: 1;
+  }
+
+  &.small {
+    height: 25px;
+    min-height: 25px;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 12px 8px;
+    gap: 4px;
+
+    mat-icon {
+      font-size: 16px;
+      width: max-content;
+    }
+  }
+
+  &.medium {
+    height: 43px;
+    min-height: 43px;
+    font-size: 22px;
+    line-height: 30px;
+    gap: 2px;
+
+    mat-icon {
+      font-size: 20px;
+    }
+  }
+
+  &.big {
+    height: 50px;
+    min-height: 50px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  &:disabled,
+  &.disabled {
+    background: $primary;
+    color: $primary;
+  }
+
+  &.primary {
+    border: 1px solid $primary;
+    background: $primary;
+    color: $white;
+
+    i,
+    svg,
+    mat-icon {
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover,
+    &:active {
+      border-color: $primary;
+      color: $primary;
+
+      i,
+      svg,
+      mat-icon {
+        color: $primary;
+        fill: $primary;
+      }
+    }
+  }
+
+  &.secondary {
+    border: 1px solid $secondary;
+    background: $secondary;
+    color: $white;
+    box-shadow: 0px 4px 15px #ea686d;
+
+    i,
+    svg,
+    mat-icon {
+      color: $white;
+      fill: $white;
+    }
+
+    &:hover,
+    &:active {
+      border-color: $secondary;
+      color: $secondary;
+
+      i,
+      svg,
+      mat-icon {
+        color: $secondary;
+        fill: $secondary;
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    background: $light-smoke;
+    border-color: $light-smoke;
+    color: $primary;
+    pointer-events: none;
+    cursor: not-allowed;
+
+    i,
+    svg,
+    mat-icon {
+      color: $primary;
+      fill: $primary;
+    }
+  }
+}

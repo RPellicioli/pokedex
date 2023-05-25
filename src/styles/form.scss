@@ -1,0 +1,44 @@
+@import "./utils";
+
+input,
+select,
+mat-select,
+textarea {
+  width: 100%;
+  margin: 0px;
+  padding: 11px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid $white-smoke;
+  font-family: $font-nunito;
+  color: $primary;
+  background: $white;
+  outline: none;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+
+  &::placeholder {
+    padding: 0px;
+    font-size: 14px;
+    line-height: 16px;
+    color: $light-smoke;
+    font-family: $font-nunito;
+  }
+
+  &.has-error {
+    border-color: $error;
+    color: $error;
+  }
+
+  &:disabled,
+  &.disabled,
+  &[aria-disabled="true"] {
+    background: $light-smoke !important;
+    color: rgba(0, 0, 0, 0.38) !important;
+    pointer-events: none !important;
+  }
+}
+
+label {
+  display: block;
+}
